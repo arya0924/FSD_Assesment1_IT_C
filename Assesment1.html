@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Card</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .product-card {
+      width: 300px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .product-card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    .product-card h2 {
+      font-size: 20px;
+      margin: 10px 0;
+    }
+
+    .product-card p {
+      color: gray;
+      font-size: 14px;
+      margin: 10px 0;
+    }
+
+    .product-card .price {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .product-card input[type="number"] {
+      width: 60px;
+      padding: 5px;
+      margin: 10px 0;
+    }
+
+    .product-card button {
+      background-color: green;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .product-card button:hover {
+      background-color: darkgreen;
+    }
+  </style>
+</head>
+<body>
+  <div class="product-card">
+    <img src="camera.jpg" alt="Product Image">
+    <h2>Canon Camera</h2>
+    <p class="price">Rs.15</p>
+    <p>Canon EOS R50 Mirrorless Camera RF.</p>
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" value="1" min="1" onchange="updatePrice()">
+    <p>Total Price: Rs. <span id="total-price">15</span></p>
+    <button onclick="buyNow()">Buy Now</button>
+  </div>
+
+  <script>
+    const unitPrice = 15;
+
+    function updatePrice() {
+      const quantity = document.getElementById('quantity').value;
+      const totalPrice = quantity * unitPrice;
+      document.getElementById('total-price').textContent = totalPrice;
+    }
+
+    function buyNow() {
+      const quantity = document.getElementById('quantity').value;
+      const totalPrice = quantity * unitPrice;
+      alert(`You added ${quantity} items to your cart for Rs. ${totalPrice}`);
+    }
+  </script>
+</body>
+</html>
